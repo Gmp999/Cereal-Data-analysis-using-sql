@@ -134,15 +134,7 @@ plt.xlabel('Sodium (mg)')
 plt.ylabel('Potassium (mg)')
 plt.legend(title='Type', loc='upper right')
 plt.show()
-No description has been provided for this image
-C:\Users\gouth\anaconda3\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context('mode.use_inf_as_na', True):
-C:\Users\gouth\anaconda3\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context('mode.use_inf_as_na', True):
-No description has been provided for this image
-No description has been provided for this image
-No description has been provided for this image
-No description has been provided for this image
+
 # 1. Bar Plot for Average Calories by Manufacturer
 plt.figure(figsize=(12, 6))
 avg_calories = cereal_data.groupby('mfr')['calories'].mean().reset_index()
@@ -151,7 +143,7 @@ plt.title('Average Calories by Manufacturer')
 plt.xlabel('Manufacturer')
 plt.ylabel('Average Calories')
 plt.show()
-No description has been provided for this image
+
 plt.figure(figsize=(12, 6))
 sorted_data = cereal_data.sort_values('fiber')
 sns.lineplot(x='fiber', y='rating', data=sorted_data, marker='o')
@@ -159,18 +151,14 @@ plt.title('Rating by Fiber Content')
 plt.xlabel('Fiber (grams)')
 plt.ylabel('Rating')
 plt.show()
-C:\Users\gouth\anaconda3\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context('mode.use_inf_as_na', True):
-C:\Users\gouth\anaconda3\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context('mode.use_inf_as_na', True):
-No description has been provided for this image
+
 # 3. Pie Chart for Distribution of Cereal Types
 plt.figure(figsize=(8, 8))
 type_counts = cereal_data['type'].value_counts()
 plt.pie(type_counts, labels=type_counts.index, autopct='%1.1f%%', startangle=140)
 plt.title('Distribution of Cereal Types')
 plt.show()
-No description has been provided for this image
+
 import mysql.connector
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -257,15 +245,7 @@ C:\Users\gouth\AppData\Local\Temp\ipykernel_39488\2020132259.py:24: UserWarning:
 2        70        4    1     260    9.0    7.0       5     320        25  
 3        50        4    0     140   14.0    8.0       0     330        25  
 4       110        2    2     200    1.0   14.0       8      -1        25  
-No description has been provided for this image
-C:\Users\gouth\anaconda3\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context('mode.use_inf_as_na', True):
-C:\Users\gouth\anaconda3\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context('mode.use_inf_as_na', True):
-No description has been provided for this image
-No description has been provided for this image
-No description has been provided for this image
-No description has been provided for this image
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -277,7 +257,7 @@ plt.xlabel('Manufacturer')
 plt.ylabel('Average Calories')
 plt.xticks(rotation=90)  # Adjust the rotation angle as needed
 plt.show()
-No description has been provided for this image
+
 # Visualization 2: Line Plot for Rating by Fiber Content
 plt.figure(figsize=(10, 6))
 sns.barplot(x='fiber', y='rating', data=cereal_data)
@@ -285,14 +265,14 @@ plt.title('Rating by Fiber Content')
 plt.xlabel('Fiber Content')
 plt.ylabel('Rating')
 plt.show()
-No description has been provided for this image
+
 # Visualization 3: Pie Chart for Distribution of Cereal Types
 plt.figure(figsize=(8, 8))
 type_counts = cereal_data['type'].value_counts()
 plt.pie(type_counts, labels=type_counts.index, autopct='%1.1f%%', startangle=140)
 plt.title('Distribution of Cereal Types')
 plt.show()
-No description has been provided for this image
+
 # Visualization 4: Bar Plot for Total Sugars by Shelf Position
 plt.figure(figsize=(10, 6))
 total_sugars = cereal_data.groupby('shelf')['sugars'].sum().reset_index()
@@ -301,7 +281,7 @@ plt.title('Total Sugars by Shelf Position')
 plt.xlabel('Shelf Position')
 plt.ylabel('Total Sugars')
 plt.show()
-No description has been provided for this image
+
 # Visualization 5: Scatter Plot for Sodium vs. Potassium
 plt.figure(figsize=(10, 6))
 sns.scatterplot(x='sodium', y='potass', hue='type', data=cereal_data)
@@ -309,5 +289,5 @@ plt.title('Sodium vs. Potassium')
 plt.xlabel('Sodium (mg)')
 plt.ylabel('Potassium (mg)')
 plt.show()
-No description has been provided for this image
+
  
