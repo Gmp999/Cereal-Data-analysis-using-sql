@@ -1,0 +1,435 @@
+mysql> use sprint2prj;
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_sprint2prj   |
++------------------------+
+| cerealinformation      |
+| joined_cereal_data     |
+| nutritionalinformation |
+| servinginformation     |
++------------------------+
+4 rows in set (0.01 sec)
+
+mysql> desc cerealinformation;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| name  | varchar(255) | NO   | PRI | NULL    |       |
+| mfr   | char(1)      | YES  |     | NULL    |       |
+| type  | char(1)      | YES  |     | NULL    |       |
+| shelf | int          | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> desc nutritionalinformation;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| name     | varchar(255) | YES  | MUL | NULL    |       |
+| calories | int          | YES  |     | NULL    |       |
+| protein  | int          | YES  |     | NULL    |       |
+| fat      | int          | YES  |     | NULL    |       |
+| sodium   | int          | YES  |     | NULL    |       |
+| fiber    | float        | YES  |     | NULL    |       |
+| carbo    | float        | YES  |     | NULL    |       |
+| sugars   | int          | YES  |     | NULL    |       |
+| potass   | int          | YES  |     | NULL    |       |
+| vitamins | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> desc servinginformation;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| name   | varchar(255) | YES  | MUL | NULL    |       |
+| weight | float        | YES  |     | NULL    |       |
+| cups   | float        | YES  |     | NULL    |       |
+| rating | float        | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select* from cerealinformation;
++----------------------------------------+------+------+-------+
+| name                                   | mfr  | type | shelf |
++----------------------------------------+------+------+-------+
+| 100% Bran                              | N    | C    |     3 |
+| 100% Natural Bran                      | Q    | C    |     3 |
+| All-Bran                               | K    | C    |     3 |
+| All-Bran with Extra Fiber              | K    | C    |     3 |
+| Almond Delight                         | R    | C    |     3 |
+| Apple Cinnamon Cheerios                | G    | C    |     1 |
+| Apple Jacks                            | K    | C    |     2 |
+| Basic 4                                | G    | C    |     3 |
+| Bran Chex                              | R    | C    |     1 |
+| Bran Flakes                            | P    | C    |     3 |
+| Cap'n'Crunch                           | Q    | C    |     2 |
+| Cheerios                               | G    | C    |     1 |
+| Cinnamon Toast Crunch                  | G    | C    |     2 |
+| Clusters                               | G    | C    |     3 |
+| Cocoa Puffs                            | G    | C    |     2 |
+| Corn Chex                              | R    | C    |     1 |
+| Corn Flakes                            | K    | C    |     1 |
+| Corn Pops                              | K    | C    |     2 |
+| Count Chocula                          | G    | C    |     2 |
+| Cracklin' Oat Bran                     | K    | C    |     3 |
+| Cream of Wheat (Quick)                 | N    | H    |     2 |
+| Crispix                                | K    | C    |     3 |
+| Crispy Wheat & Raisins                 | G    | C    |     3 |
+| Double Chex                            | R    | C    |     3 |
+| Froot Loops                            | K    | C    |     2 |
+| Frosted Flakes                         | K    | C    |     1 |
+| Frosted Mini-Wheats                    | K    | C    |     2 |
+| Fruit & Fibre Dates; Walnuts; and Oats | P    | C    |     3 |
+| Fruitful Bran                          | K    | C    |     3 |
+| Fruity Pebbles                         | P    | C    |     2 |
+| Golden Crisp                           | P    | C    |     1 |
+| Golden Grahams                         | G    | C    |     2 |
+| Grape Nuts Flakes                      | P    | C    |     3 |
+| Grape-Nuts                             | P    | C    |     3 |
+| Great Grains Pecan                     | P    | C    |     3 |
+| Honey Graham Ohs                       | Q    | C    |     2 |
+| Honey Nut Cheerios                     | G    | C    |     1 |
+| Honey-comb                             | P    | C    |     1 |
+| Just Right Crunchy  Nuggets            | K    | C    |     3 |
+| Just Right Fruit & Nut                 | K    | C    |     3 |
+| Kix                                    | G    | C    |     2 |
+| Life                                   | Q    | C    |     2 |
+| Lucky Charms                           | G    | C    |     2 |
+| Maypo                                  | A    | H    |     2 |
+| Muesli Raisins; Dates; & Almonds       | R    | C    |     3 |
+| Muesli Raisins; Peaches; & Pecans      | R    | C    |     3 |
+| Mueslix Crispy Blend                   | K    | C    |     3 |
+| Multi-Grain Cheerios                   | G    | C    |     1 |
+| Nut&Honey Crunch                       | K    | C    |     2 |
+| Nutri-Grain Almond-Raisin              | K    | C    |     3 |
+| Nutri-grain Wheat                      | K    | C    |     3 |
+| Oatmeal Raisin Crisp                   | G    | C    |     3 |
+| Post Nat. Raisin Bran                  | P    | C    |     3 |
+| Product 19                             | K    | C    |     3 |
+| Puffed Rice                            | Q    | C    |     3 |
+| Puffed Wheat                           | Q    | C    |     3 |
+| Quaker Oat Squares                     | Q    | C    |     3 |
+| Quaker Oatmeal                         | Q    | H    |     1 |
+| Raisin Bran                            | K    | C    |     2 |
+| Raisin Nut Bran                        | G    | C    |     3 |
+| Raisin Squares                         | K    | C    |     3 |
+| Rice Chex                              | R    | C    |     1 |
+| Rice Krispies                          | K    | C    |     1 |
+| Shredded Wheat                         | N    | C    |     1 |
+| Shredded Wheat 'n'Bran                 | N    | C    |     1 |
+| Shredded Wheat spoon size              | N    | C    |     1 |
+| Smacks                                 | K    | C    |     2 |
+| Special K                              | K    | C    |     1 |
+| Strawberry Fruit Wheats                | N    | C    |     2 |
+| Total Corn Flakes                      | G    | C    |     3 |
+| Total Raisin Bran                      | G    | C    |     3 |
+| Total Whole Grain                      | G    | C    |     3 |
+| Triples                                | G    | C    |     3 |
+| Trix                                   | G    | C    |     2 |
+| Wheat Chex                             | R    | C    |     1 |
+| Wheaties                               | G    | C    |     1 |
+| Wheaties Honey Gold                    | G    | C    |     1 |
++----------------------------------------+------+------+-------+
+77 rows in set (0.00 sec)
+
+mysql> select* from nutritionalinformation;
++----------------------------------------+----------+---------+------+--------+-------+-------+--------+--------+----------+
+| name                                   | calories | protein | fat  | sodium | fiber | carbo | sugars | potass | vitamins |
++----------------------------------------+----------+---------+------+--------+-------+-------+--------+--------+----------+
+| 100% Bran                              |       70 |       4 |    1 |    130 |    10 |     5 |      6 |    280 |       25 |
+| 100% Natural Bran                      |      120 |       3 |    5 |     15 |     2 |     8 |      8 |    135 |        0 |
+| All-Bran                               |       70 |       4 |    1 |    260 |     9 |     7 |      5 |    320 |       25 |
+| All-Bran with Extra Fiber              |       50 |       4 |    0 |    140 |    14 |     8 |      0 |    330 |       25 |
+| Almond Delight                         |      110 |       2 |    2 |    200 |     1 |    14 |      8 |     -1 |       25 |
+| Apple Cinnamon Cheerios                |      110 |       2 |    2 |    180 |   1.5 |  10.5 |     10 |     70 |       25 |
+| Apple Jacks                            |      110 |       2 |    0 |    125 |     1 |    11 |     14 |     30 |       25 |
+| Basic 4                                |      130 |       3 |    2 |    210 |     2 |    18 |      8 |    100 |       25 |
+| Bran Chex                              |       90 |       2 |    1 |    200 |     4 |    15 |      6 |    125 |       25 |
+| Bran Flakes                            |       90 |       3 |    0 |    210 |     5 |    13 |      5 |    190 |       25 |
+| Cap'n'Crunch                           |      120 |       1 |    2 |    220 |     0 |    12 |     12 |     35 |       25 |
+| Cheerios                               |      110 |       6 |    2 |    290 |     2 |    17 |      1 |    105 |       25 |
+| Cinnamon Toast Crunch                  |      120 |       1 |    3 |    210 |     0 |    13 |      9 |     45 |       25 |
+| Clusters                               |      110 |       3 |    2 |    140 |     2 |    13 |      7 |    105 |       25 |
+| Cocoa Puffs                            |      110 |       1 |    1 |    180 |     0 |    12 |     13 |     55 |       25 |
+| Corn Chex                              |      110 |       2 |    0 |    280 |     0 |    22 |      3 |     25 |       25 |
+| Corn Flakes                            |      100 |       2 |    0 |    290 |     1 |    21 |      2 |     35 |       25 |
+| Corn Pops                              |      110 |       1 |    0 |     90 |     1 |    13 |     12 |     20 |       25 |
+| Count Chocula                          |      110 |       1 |    1 |    180 |     0 |    12 |     13 |     65 |       25 |
+| Cracklin' Oat Bran                     |      110 |       3 |    3 |    140 |     4 |    10 |      7 |    160 |       25 |
+| Cream of Wheat (Quick)                 |      100 |       3 |    0 |     80 |     1 |    21 |      0 |     -1 |        0 |
+| Crispix                                |      110 |       2 |    0 |    220 |     1 |    21 |      3 |     30 |       25 |
+| Crispy Wheat & Raisins                 |      100 |       2 |    1 |    140 |     2 |    11 |     10 |    120 |       25 |
+| Double Chex                            |      100 |       2 |    0 |    190 |     1 |    18 |      5 |     80 |       25 |
+| Froot Loops                            |      110 |       2 |    1 |    125 |     1 |    11 |     13 |     30 |       25 |
+| Frosted Flakes                         |      110 |       1 |    0 |    200 |     1 |    14 |     11 |     25 |       25 |
+| Frosted Mini-Wheats                    |      100 |       3 |    0 |      0 |     3 |    14 |      7 |    100 |       25 |
+| Fruit & Fibre Dates; Walnuts; and Oats |      120 |       3 |    2 |    160 |     5 |    12 |     10 |    200 |       25 |
+| Fruitful Bran                          |      120 |       3 |    0 |    240 |     5 |    14 |     12 |    190 |       25 |
+| Fruity Pebbles                         |      110 |       1 |    1 |    135 |     0 |    13 |     12 |     25 |       25 |
+| Golden Crisp                           |      100 |       2 |    0 |     45 |     0 |    11 |     15 |     40 |       25 |
+| Golden Grahams                         |      110 |       1 |    1 |    280 |     0 |    15 |      9 |     45 |       25 |
+| Grape Nuts Flakes                      |      100 |       3 |    1 |    140 |     3 |    15 |      5 |     85 |       25 |
+| Grape-Nuts                             |      110 |       3 |    0 |    170 |     3 |    17 |      3 |     90 |       25 |
+| Great Grains Pecan                     |      120 |       3 |    3 |     75 |     3 |    13 |      4 |    100 |       25 |
+| Honey Graham Ohs                       |      120 |       1 |    2 |    220 |     1 |    12 |     11 |     45 |       25 |
+| Honey Nut Cheerios                     |      110 |       3 |    1 |    250 |   1.5 |  11.5 |     10 |     90 |       25 |
+| Honey-comb                             |      110 |       1 |    0 |    180 |     0 |    14 |     11 |     35 |       25 |
+| Just Right Crunchy  Nuggets            |      110 |       2 |    1 |    170 |     1 |    17 |      6 |     60 |      100 |
+| Just Right Fruit & Nut                 |      140 |       3 |    1 |    170 |     2 |    20 |      9 |     95 |      100 |
+| Kix                                    |      110 |       2 |    1 |    260 |     0 |    21 |      3 |     40 |       25 |
+| Life                                   |      100 |       4 |    2 |    150 |     2 |    12 |      6 |     95 |       25 |
+| Lucky Charms                           |      110 |       2 |    1 |    180 |     0 |    12 |     12 |     55 |       25 |
+| Maypo                                  |      100 |       4 |    1 |      0 |     0 |    16 |      3 |     95 |       25 |
+| Muesli Raisins; Dates; & Almonds       |      150 |       4 |    3 |     95 |     3 |    16 |     11 |    170 |       25 |
+| Muesli Raisins; Peaches; & Pecans      |      150 |       4 |    3 |    150 |     3 |    16 |     11 |    170 |       25 |
+| Mueslix Crispy Blend                   |      160 |       3 |    2 |    150 |     3 |    17 |     13 |    160 |       25 |
+| Multi-Grain Cheerios                   |      100 |       2 |    1 |    220 |     2 |    15 |      6 |     90 |       25 |
+| Nut&Honey Crunch                       |      120 |       2 |    1 |    190 |     0 |    15 |      9 |     40 |       25 |
+| Nutri-Grain Almond-Raisin              |      140 |       3 |    2 |    220 |     3 |    21 |      7 |    130 |       25 |
+| Nutri-grain Wheat                      |       90 |       3 |    0 |    170 |     3 |    18 |      2 |     90 |       25 |
+| Oatmeal Raisin Crisp                   |      130 |       3 |    2 |    170 |   1.5 |  13.5 |     10 |    120 |       25 |
+| Post Nat. Raisin Bran                  |      120 |       3 |    1 |    200 |     6 |    11 |     14 |    260 |       25 |
+| Product 19                             |      100 |       3 |    0 |    320 |     1 |    20 |      3 |     45 |      100 |
+| Puffed Rice                            |       50 |       1 |    0 |      0 |     0 |    13 |      0 |     15 |        0 |
+| Puffed Wheat                           |       50 |       2 |    0 |      0 |     1 |    10 |      0 |     50 |        0 |
+| Quaker Oat Squares                     |      100 |       4 |    1 |    135 |     2 |    14 |      6 |    110 |       25 |
+| Quaker Oatmeal                         |      100 |       5 |    2 |      0 |   2.7 |    -1 |     -1 |    110 |        0 |
+| Raisin Bran                            |      120 |       3 |    1 |    210 |     5 |    14 |     12 |    240 |       25 |
+| Raisin Nut Bran                        |      100 |       3 |    2 |    140 |   2.5 |  10.5 |      8 |    140 |       25 |
+| Raisin Squares                         |       90 |       2 |    0 |      0 |     2 |    15 |      6 |    110 |       25 |
+| Rice Chex                              |      110 |       1 |    0 |    240 |     0 |    23 |      2 |     30 |       25 |
+| Rice Krispies                          |      110 |       2 |    0 |    290 |     0 |    22 |      3 |     35 |       25 |
+| Shredded Wheat                         |       80 |       2 |    0 |      0 |     3 |    16 |      0 |     95 |        0 |
+| Shredded Wheat 'n'Bran                 |       90 |       3 |    0 |      0 |     4 |    19 |      0 |    140 |        0 |
+| Shredded Wheat spoon size              |       90 |       3 |    0 |      0 |     3 |    20 |      0 |    120 |        0 |
+| Smacks                                 |      110 |       2 |    1 |     70 |     1 |     9 |     15 |     40 |       25 |
+| Special K                              |      110 |       6 |    0 |    230 |     1 |    16 |      3 |     55 |       25 |
+| Strawberry Fruit Wheats                |       90 |       2 |    0 |     15 |     3 |    15 |      5 |     90 |       25 |
+| Total Corn Flakes                      |      110 |       2 |    1 |    200 |     0 |    21 |      3 |     35 |      100 |
+| Total Raisin Bran                      |      140 |       3 |    1 |    190 |     4 |    15 |     14 |    230 |      100 |
+| Total Whole Grain                      |      100 |       3 |    1 |    200 |     3 |    16 |      3 |    110 |      100 |
+| Triples                                |      110 |       2 |    1 |    250 |     0 |    21 |      3 |     60 |       25 |
+| Trix                                   |      110 |       1 |    1 |    140 |     0 |    13 |     12 |     25 |       25 |
+| Wheat Chex                             |      100 |       3 |    1 |    230 |     3 |    17 |      3 |    115 |       25 |
+| Wheaties                               |      100 |       3 |    1 |    200 |     3 |    17 |      3 |    110 |       25 |
+| Wheaties Honey Gold                    |      110 |       2 |    1 |    200 |     1 |    16 |      8 |     60 |       25 |
++----------------------------------------+----------+---------+------+--------+-------+-------+--------+--------+----------+
+77 rows in set (0.00 sec)
+
+mysql> select* from servinginformation;
++----------------------------------------+--------+------+---------+
+| name                                   | weight | cups | rating  |
++----------------------------------------+--------+------+---------+
+| 100% Bran                              |      1 | 0.33 |  68.403 |
+| 100% Natural Bran                      |      1 |    1 | 33.9837 |
+| All-Bran                               |      1 | 0.33 | 59.4255 |
+| All-Bran with Extra Fiber              |      1 |  0.5 | 93.7049 |
+| Almond Delight                         |      1 | 0.75 | 34.3848 |
+| Apple Cinnamon Cheerios                |      1 | 0.75 | 29.5095 |
+| Apple Jacks                            |      1 |    1 | 33.1741 |
+| Basic 4                                |   1.33 | 0.75 | 37.0386 |
+| Bran Chex                              |      1 | 0.67 | 49.1203 |
+| Bran Flakes                            |      1 | 0.67 | 53.3138 |
+| Cap'n'Crunch                           |      1 | 0.75 | 18.0429 |
+| Cheerios                               |      1 | 1.25 |  50.765 |
+| Cinnamon Toast Crunch                  |      1 | 0.75 | 19.8236 |
+| Clusters                               |      1 |  0.5 | 40.4002 |
+| Cocoa Puffs                            |      1 |    1 | 22.7364 |
+| Corn Chex                              |      1 |    1 |  41.445 |
+| Corn Flakes                            |      1 |    1 | 45.8633 |
+| Corn Pops                              |      1 |    1 | 35.7828 |
+| Count Chocula                          |      1 |    1 | 22.3965 |
+| Cracklin' Oat Bran                     |      1 |  0.5 | 40.4488 |
+| Cream of Wheat (Quick)                 |      1 |    1 | 64.5338 |
+| Crispix                                |      1 |    1 | 46.8956 |
+| Crispy Wheat & Raisins                 |      1 | 0.75 | 36.1762 |
+| Double Chex                            |      1 | 0.75 | 44.3309 |
+| Froot Loops                            |      1 |    1 | 32.2076 |
+| Frosted Flakes                         |      1 | 0.75 |  31.436 |
+| Frosted Mini-Wheats                    |      1 |  0.8 | 58.3451 |
+| Fruit & Fibre Dates; Walnuts; and Oats |   1.25 | 0.67 |  40.917 |
+| Fruitful Bran                          |   1.33 | 0.67 | 41.0155 |
+| Fruity Pebbles                         |      1 | 0.75 | 28.0258 |
+| Golden Crisp                           |      1 | 0.88 | 35.2524 |
+| Golden Grahams                         |      1 | 0.75 |  23.804 |
+| Grape Nuts Flakes                      |      1 | 0.88 | 52.0769 |
+| Grape-Nuts                             |      1 | 0.25 |  53.371 |
+| Great Grains Pecan                     |      1 | 0.33 | 45.8117 |
+| Honey Graham Ohs                       |      1 |    1 | 21.8713 |
+| Honey Nut Cheerios                     |      1 | 0.75 | 31.0722 |
+| Honey-comb                             |      1 | 1.33 | 28.7424 |
+| Just Right Crunchy  Nuggets            |      1 |    1 | 36.5237 |
+| Just Right Fruit & Nut                 |    1.3 | 0.75 | 36.4715 |
+| Kix                                    |      1 |  1.5 | 39.2411 |
+| Life                                   |      1 | 0.67 | 45.3281 |
+| Lucky Charms                           |      1 |    1 | 26.7345 |
+| Maypo                                  |      1 |    1 | 54.8509 |
+| Muesli Raisins; Dates; & Almonds       |      1 |    1 | 37.1369 |
+| Muesli Raisins; Peaches; & Pecans      |      1 |    1 | 34.1398 |
+| Mueslix Crispy Blend                   |    1.5 | 0.67 | 30.3134 |
+| Multi-Grain Cheerios                   |      1 |    1 |  40.106 |
+| Nut&Honey Crunch                       |      1 | 0.67 | 29.9243 |
+| Nutri-Grain Almond-Raisin              |   1.33 | 0.67 | 40.6923 |
+| Nutri-grain Wheat                      |      1 |    1 | 59.6428 |
+| Oatmeal Raisin Crisp                   |   1.25 |  0.5 | 30.4508 |
+| Post Nat. Raisin Bran                  |   1.33 | 0.67 | 37.8406 |
+| Product 19                             |      1 |    1 | 41.5035 |
+| Puffed Rice                            |    0.5 |    1 | 60.7561 |
+| Puffed Wheat                           |    0.5 |    1 | 63.0056 |
+| Quaker Oat Squares                     |      1 |  0.5 | 49.5119 |
+| Quaker Oatmeal                         |      1 | 0.67 | 50.8284 |
+| Raisin Bran                            |   1.33 | 0.75 | 39.2592 |
+| Raisin Nut Bran                        |      1 |  0.5 | 39.7034 |
+| Raisin Squares                         |      1 |  0.5 | 55.3331 |
+| Rice Chex                              |      1 | 1.13 | 41.9989 |
+| Rice Krispies                          |      1 |    1 | 40.5602 |
+| Shredded Wheat                         |   0.83 |    1 | 68.2359 |
+| Shredded Wheat 'n'Bran                 |      1 | 0.67 | 74.4729 |
+| Shredded Wheat spoon size              |      1 | 0.67 | 72.8018 |
+| Smacks                                 |      1 | 0.75 | 31.2301 |
+| Special K                              |      1 |    1 | 53.1313 |
+| Strawberry Fruit Wheats                |      1 |    1 |  59.364 |
+| Total Corn Flakes                      |      1 |    1 | 38.8397 |
+| Total Raisin Bran                      |    1.5 |    1 | 28.5928 |
+| Total Whole Grain                      |      1 |    1 | 46.6588 |
+| Triples                                |      1 | 0.75 | 39.1062 |
+| Trix                                   |      1 |    1 | 27.7533 |
+| Wheat Chex                             |      1 | 0.67 | 49.7874 |
+| Wheaties                               |      1 |    1 | 51.5922 |
+| Wheaties Honey Gold                    |      1 | 0.75 | 36.1876 |
++----------------------------------------+--------+------+---------+
+77 rows in set (0.01 sec)
+
+mysql> select* from joined_cereal_data;
++----------------------------------------+------+----------+-------+--------+------+---------+----------+---------+------+--------+-------+-------+--------+--------+----------+
+| name                                   | type | mfr_name | shelf | weight | cups | rating  | calories | protein | fat  | sodium | fiber | carbo | sugars | potass | vitamins |
++----------------------------------------+------+----------+-------+--------+------+---------+----------+---------+------+--------+-------+-------+--------+--------+----------+
+| 100% Bran                              | C    | N        |     3 |      1 | 0.33 |  68.403 |       70 |       4 |    1 |    130 |    10 |     5 |      6 |    280 |       25 |
+| 100% Natural Bran                      | C    | Q        |     3 |      1 |    1 | 33.9837 |      120 |       3 |    5 |     15 |     2 |     8 |      8 |    135 |        0 |
+| All-Bran                               | C    | K        |     3 |      1 | 0.33 | 59.4255 |       70 |       4 |    1 |    260 |     9 |     7 |      5 |    320 |       25 |
+| All-Bran with Extra Fiber              | C    | K        |     3 |      1 |  0.5 | 93.7049 |       50 |       4 |    0 |    140 |    14 |     8 |      0 |    330 |       25 |
+| Almond Delight                         | C    | R        |     3 |      1 | 0.75 | 34.3848 |      110 |       2 |    2 |    200 |     1 |    14 |      8 |     -1 |       25 |
+| Apple Cinnamon Cheerios                | C    | G        |     1 |      1 | 0.75 | 29.5095 |      110 |       2 |    2 |    180 |   1.5 |  10.5 |     10 |     70 |       25 |
+| Apple Jacks                            | C    | K        |     2 |      1 |    1 | 33.1741 |      110 |       2 |    0 |    125 |     1 |    11 |     14 |     30 |       25 |
+| Basic 4                                | C    | G        |     3 |   1.33 | 0.75 | 37.0386 |      130 |       3 |    2 |    210 |     2 |    18 |      8 |    100 |       25 |
+| Bran Chex                              | C    | R        |     1 |      1 | 0.67 | 49.1203 |       90 |       2 |    1 |    200 |     4 |    15 |      6 |    125 |       25 |
+| Bran Flakes                            | C    | P        |     3 |      1 | 0.67 | 53.3138 |       90 |       3 |    0 |    210 |     5 |    13 |      5 |    190 |       25 |
+| Cap'n'Crunch                           | C    | Q        |     2 |      1 | 0.75 | 18.0429 |      120 |       1 |    2 |    220 |     0 |    12 |     12 |     35 |       25 |
+| Cheerios                               | C    | G        |     1 |      1 | 1.25 |  50.765 |      110 |       6 |    2 |    290 |     2 |    17 |      1 |    105 |       25 |
+| Cinnamon Toast Crunch                  | C    | G        |     2 |      1 | 0.75 | 19.8236 |      120 |       1 |    3 |    210 |     0 |    13 |      9 |     45 |       25 |
+| Clusters                               | C    | G        |     3 |      1 |  0.5 | 40.4002 |      110 |       3 |    2 |    140 |     2 |    13 |      7 |    105 |       25 |
+| Cocoa Puffs                            | C    | G        |     2 |      1 |    1 | 22.7364 |      110 |       1 |    1 |    180 |     0 |    12 |     13 |     55 |       25 |
+| Corn Chex                              | C    | R        |     1 |      1 |    1 |  41.445 |      110 |       2 |    0 |    280 |     0 |    22 |      3 |     25 |       25 |
+| Corn Flakes                            | C    | K        |     1 |      1 |    1 | 45.8633 |      100 |       2 |    0 |    290 |     1 |    21 |      2 |     35 |       25 |
+| Corn Pops                              | C    | K        |     2 |      1 |    1 | 35.7828 |      110 |       1 |    0 |     90 |     1 |    13 |     12 |     20 |       25 |
+| Count Chocula                          | C    | G        |     2 |      1 |    1 | 22.3965 |      110 |       1 |    1 |    180 |     0 |    12 |     13 |     65 |       25 |
+| Cracklin' Oat Bran                     | C    | K        |     3 |      1 |  0.5 | 40.4488 |      110 |       3 |    3 |    140 |     4 |    10 |      7 |    160 |       25 |
+| Cream of Wheat (Quick)                 | H    | N        |     2 |      1 |    1 | 64.5338 |      100 |       3 |    0 |     80 |     1 |    21 |      0 |     -1 |        0 |
+| Crispix                                | C    | K        |     3 |      1 |    1 | 46.8956 |      110 |       2 |    0 |    220 |     1 |    21 |      3 |     30 |       25 |
+| Crispy Wheat & Raisins                 | C    | G        |     3 |      1 | 0.75 | 36.1762 |      100 |       2 |    1 |    140 |     2 |    11 |     10 |    120 |       25 |
+| Double Chex                            | C    | R        |     3 |      1 | 0.75 | 44.3309 |      100 |       2 |    0 |    190 |     1 |    18 |      5 |     80 |       25 |
+| Froot Loops                            | C    | K        |     2 |      1 |    1 | 32.2076 |      110 |       2 |    1 |    125 |     1 |    11 |     13 |     30 |       25 |
+| Frosted Flakes                         | C    | K        |     1 |      1 | 0.75 |  31.436 |      110 |       1 |    0 |    200 |     1 |    14 |     11 |     25 |       25 |
+| Frosted Mini-Wheats                    | C    | K        |     2 |      1 |  0.8 | 58.3451 |      100 |       3 |    0 |      0 |     3 |    14 |      7 |    100 |       25 |
+| Fruit & Fibre Dates; Walnuts; and Oats | C    | P        |     3 |   1.25 | 0.67 |  40.917 |      120 |       3 |    2 |    160 |     5 |    12 |     10 |    200 |       25 |
+| Fruitful Bran                          | C    | K        |     3 |   1.33 | 0.67 | 41.0155 |      120 |       3 |    0 |    240 |     5 |    14 |     12 |    190 |       25 |
+| Fruity Pebbles                         | C    | P        |     2 |      1 | 0.75 | 28.0258 |      110 |       1 |    1 |    135 |     0 |    13 |     12 |     25 |       25 |
+| Golden Crisp                           | C    | P        |     1 |      1 | 0.88 | 35.2524 |      100 |       2 |    0 |     45 |     0 |    11 |     15 |     40 |       25 |
+| Golden Grahams                         | C    | G        |     2 |      1 | 0.75 |  23.804 |      110 |       1 |    1 |    280 |     0 |    15 |      9 |     45 |       25 |
+| Grape Nuts Flakes                      | C    | P        |     3 |      1 | 0.88 | 52.0769 |      100 |       3 |    1 |    140 |     3 |    15 |      5 |     85 |       25 |
+| Grape-Nuts                             | C    | P        |     3 |      1 | 0.25 |  53.371 |      110 |       3 |    0 |    170 |     3 |    17 |      3 |     90 |       25 |
+| Great Grains Pecan                     | C    | P        |     3 |      1 | 0.33 | 45.8117 |      120 |       3 |    3 |     75 |     3 |    13 |      4 |    100 |       25 |
+| Honey Graham Ohs                       | C    | Q        |     2 |      1 |    1 | 21.8713 |      120 |       1 |    2 |    220 |     1 |    12 |     11 |     45 |       25 |
+| Honey Nut Cheerios                     | C    | G        |     1 |      1 | 0.75 | 31.0722 |      110 |       3 |    1 |    250 |   1.5 |  11.5 |     10 |     90 |       25 |
+| Honey-comb                             | C    | P        |     1 |      1 | 1.33 | 28.7424 |      110 |       1 |    0 |    180 |     0 |    14 |     11 |     35 |       25 |
+| Just Right Crunchy  Nuggets            | C    | K        |     3 |      1 |    1 | 36.5237 |      110 |       2 |    1 |    170 |     1 |    17 |      6 |     60 |      100 |
+| Just Right Fruit & Nut                 | C    | K        |     3 |    1.3 | 0.75 | 36.4715 |      140 |       3 |    1 |    170 |     2 |    20 |      9 |     95 |      100 |
+| Kix                                    | C    | G        |     2 |      1 |  1.5 | 39.2411 |      110 |       2 |    1 |    260 |     0 |    21 |      3 |     40 |       25 |
+| Life                                   | C    | Q        |     2 |      1 | 0.67 | 45.3281 |      100 |       4 |    2 |    150 |     2 |    12 |      6 |     95 |       25 |
+| Lucky Charms                           | C    | G        |     2 |      1 |    1 | 26.7345 |      110 |       2 |    1 |    180 |     0 |    12 |     12 |     55 |       25 |
+| Maypo                                  | H    | A        |     2 |      1 |    1 | 54.8509 |      100 |       4 |    1 |      0 |     0 |    16 |      3 |     95 |       25 |
+| Muesli Raisins; Dates; & Almonds       | C    | R        |     3 |      1 |    1 | 37.1369 |      150 |       4 |    3 |     95 |     3 |    16 |     11 |    170 |       25 |
+| Muesli Raisins; Peaches; & Pecans      | C    | R        |     3 |      1 |    1 | 34.1398 |      150 |       4 |    3 |    150 |     3 |    16 |     11 |    170 |       25 |
+| Mueslix Crispy Blend                   | C    | K        |     3 |    1.5 | 0.67 | 30.3134 |      160 |       3 |    2 |    150 |     3 |    17 |     13 |    160 |       25 |
+| Multi-Grain Cheerios                   | C    | G        |     1 |      1 |    1 |  40.106 |      100 |       2 |    1 |    220 |     2 |    15 |      6 |     90 |       25 |
+| Nut&Honey Crunch                       | C    | K        |     2 |      1 | 0.67 | 29.9243 |      120 |       2 |    1 |    190 |     0 |    15 |      9 |     40 |       25 |
+| Nutri-Grain Almond-Raisin              | C    | K        |     3 |   1.33 | 0.67 | 40.6923 |      140 |       3 |    2 |    220 |     3 |    21 |      7 |    130 |       25 |
+| Nutri-grain Wheat                      | C    | K        |     3 |      1 |    1 | 59.6428 |       90 |       3 |    0 |    170 |     3 |    18 |      2 |     90 |       25 |
+| Oatmeal Raisin Crisp                   | C    | G        |     3 |   1.25 |  0.5 | 30.4508 |      130 |       3 |    2 |    170 |   1.5 |  13.5 |     10 |    120 |       25 |
+| Post Nat. Raisin Bran                  | C    | P        |     3 |   1.33 | 0.67 | 37.8406 |      120 |       3 |    1 |    200 |     6 |    11 |     14 |    260 |       25 |
+| Product 19                             | C    | K        |     3 |      1 |    1 | 41.5035 |      100 |       3 |    0 |    320 |     1 |    20 |      3 |     45 |      100 |
+| Puffed Rice                            | C    | Q        |     3 |    0.5 |    1 | 60.7561 |       50 |       1 |    0 |      0 |     0 |    13 |      0 |     15 |        0 |
+| Puffed Wheat                           | C    | Q        |     3 |    0.5 |    1 | 63.0056 |       50 |       2 |    0 |      0 |     1 |    10 |      0 |     50 |        0 |
+| Quaker Oat Squares                     | C    | Q        |     3 |      1 |  0.5 | 49.5119 |      100 |       4 |    1 |    135 |     2 |    14 |      6 |    110 |       25 |
+| Quaker Oatmeal                         | H    | Q        |     1 |      1 | 0.67 | 50.8284 |      100 |       5 |    2 |      0 |   2.7 |    -1 |     -1 |    110 |        0 |
+| Raisin Bran                            | C    | K        |     2 |   1.33 | 0.75 | 39.2592 |      120 |       3 |    1 |    210 |     5 |    14 |     12 |    240 |       25 |
+| Raisin Nut Bran                        | C    | G        |     3 |      1 |  0.5 | 39.7034 |      100 |       3 |    2 |    140 |   2.5 |  10.5 |      8 |    140 |       25 |
+| Raisin Squares                         | C    | K        |     3 |      1 |  0.5 | 55.3331 |       90 |       2 |    0 |      0 |     2 |    15 |      6 |    110 |       25 |
+| Rice Chex                              | C    | R        |     1 |      1 | 1.13 | 41.9989 |      110 |       1 |    0 |    240 |     0 |    23 |      2 |     30 |       25 |
+| Rice Krispies                          | C    | K        |     1 |      1 |    1 | 40.5602 |      110 |       2 |    0 |    290 |     0 |    22 |      3 |     35 |       25 |
+| Shredded Wheat                         | C    | N        |     1 |   0.83 |    1 | 68.2359 |       80 |       2 |    0 |      0 |     3 |    16 |      0 |     95 |        0 |
+| Shredded Wheat 'n'Bran                 | C    | N        |     1 |      1 | 0.67 | 74.4729 |       90 |       3 |    0 |      0 |     4 |    19 |      0 |    140 |        0 |
+| Shredded Wheat spoon size              | C    | N        |     1 |      1 | 0.67 | 72.8018 |       90 |       3 |    0 |      0 |     3 |    20 |      0 |    120 |        0 |
+| Smacks                                 | C    | K        |     2 |      1 | 0.75 | 31.2301 |      110 |       2 |    1 |     70 |     1 |     9 |     15 |     40 |       25 |
+| Special K                              | C    | K        |     1 |      1 |    1 | 53.1313 |      110 |       6 |    0 |    230 |     1 |    16 |      3 |     55 |       25 |
+| Strawberry Fruit Wheats                | C    | N        |     2 |      1 |    1 |  59.364 |       90 |       2 |    0 |     15 |     3 |    15 |      5 |     90 |       25 |
+| Total Corn Flakes                      | C    | G        |     3 |      1 |    1 | 38.8397 |      110 |       2 |    1 |    200 |     0 |    21 |      3 |     35 |      100 |
+| Total Raisin Bran                      | C    | G        |     3 |    1.5 |    1 | 28.5928 |      140 |       3 |    1 |    190 |     4 |    15 |     14 |    230 |      100 |
+| Total Whole Grain                      | C    | G        |     3 |      1 |    1 | 46.6588 |      100 |       3 |    1 |    200 |     3 |    16 |      3 |    110 |      100 |
+| Triples                                | C    | G        |     3 |      1 | 0.75 | 39.1062 |      110 |       2 |    1 |    250 |     0 |    21 |      3 |     60 |       25 |
+| Trix                                   | C    | G        |     2 |      1 |    1 | 27.7533 |      110 |       1 |    1 |    140 |     0 |    13 |     12 |     25 |       25 |
+| Wheat Chex                             | C    | R        |     1 |      1 | 0.67 | 49.7874 |      100 |       3 |    1 |    230 |     3 |    17 |      3 |    115 |       25 |
+| Wheaties                               | C    | G        |     1 |      1 |    1 | 51.5922 |      100 |       3 |    1 |    200 |     3 |    17 |      3 |    110 |       25 |
+| Wheaties Honey Gold                    | C    | G        |     1 |      1 | 0.75 | 36.1876 |      110 |       2 |    1 |    200 |     1 |    16 |      8 |     60 |       25 |
++----------------------------------------+------+----------+-------+--------+------+---------+----------+---------+------+--------+-------+-------+--------+--------+----------+
+77 rows in set (0.00 sec)
+
+mysql> desc joined_cereal_data;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| name     | varchar(255) | NO   | PRI | NULL    |       |
+| type     | char(1)      | YES  |     | NULL    |       |
+| mfr_name | char(1)      | YES  |     | NULL    |       |
+| shelf    | int          | YES  |     | NULL    |       |
+| weight   | float        | YES  |     | NULL    |       |
+| cups     | float        | YES  |     | NULL    |       |
+| rating   | float        | YES  |     | NULL    |       |
+| calories | int          | YES  |     | NULL    |       |
+| protein  | int          | YES  |     | NULL    |       |
+| fat      | int          | YES  |     | NULL    |       |
+| sodium   | int          | YES  |     | NULL    |       |
+| fiber    | float        | YES  |     | NULL    |       |
+| carbo    | float        | YES  |     | NULL    |       |
+| sugars   | int          | YES  |     | NULL    |       |
+| potass   | int          | YES  |     | NULL    |       |
+| vitamins | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+16 rows in set (0.01 sec)
+
+
+SELECT
+    ci.name,
+    ci.type,
+    ci.mfr AS mfr_name,
+    ci.shelf,
+    si.weight,
+    si.cups,
+    si.rating,
+    ni.calories,
+    ni.protein,
+    ni.fat,
+    ni.sodium,
+    ni.fiber,
+    ni.carbo,
+    ni.sugars,
+    ni.potass,
+    ni.vitamins
+FROM
+    cerealinformation ci
+JOIN
+    servinginformation si ON ci.name = si.name
+JOIN
+    nutritionalinformation ni ON ci.name = ni.name
